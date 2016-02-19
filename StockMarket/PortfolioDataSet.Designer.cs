@@ -901,7 +901,7 @@ SELECT Id, symbol, company, shares, price, total FROM portfolio WHERE (Id = @Id)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::StockMarket.Properties.Settings.Default.StockMarketConnectionString;
+            this._connection.ConnectionString = global::StockMarket.Properties.Settings.Default.stock_marketConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

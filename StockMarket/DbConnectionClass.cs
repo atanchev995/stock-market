@@ -12,7 +12,7 @@ namespace StockMarket
     {
         public SqlConnection connectToDatabase()
         {
-            string conString = Properties.Settings.Default.StockMarketConnectionString;
+            string conString = Properties.Settings.Default.stock_marketConnectionString;
             SqlConnection sqlConnection = new SqlConnection(conString);
             return sqlConnection;
         }

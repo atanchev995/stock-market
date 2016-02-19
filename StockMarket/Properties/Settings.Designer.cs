@@ -26,22 +26,11 @@ namespace StockMarket.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=THEPHOENIX-WIND\\SQLEXPRESS;Initial Catalog=StockMarket;Integrated Sec" +
-            "urity=True;Pooling=False")]
-        public string StockMarketConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=THEPHOENIX\\SQLEXPRESS;Initial Catalog=stock_market;Integrated Securit" +
+            "y=True")]
+        public string stock_marketConnectionString {
             get {
-                return ((string)(this["StockMarketConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=THEPHOENIX-WIND\\SQLEXPRESS;Initial Catalog=StockMarket;Integrated Sec" +
-            "urity=True;Pooling=False")]
-        public string StockMarketConnectionString2 {
-            get {
-                return ((string)(this["StockMarketConnectionString2"]));
+                return ((string)(this["stock_marketConnectionString"]));
             }
         }
     }
