@@ -12,7 +12,7 @@ namespace StockMarket
     class PortfolioClass
     {
         // connect to database
-        static DbConnectionClass con = new DbConnectionClass();
+        static DbConnection con = new DbConnection();
         SqlConnection sqlConnection = con.connectToDatabase();
 
         /**

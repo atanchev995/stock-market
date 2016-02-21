@@ -12,7 +12,7 @@ namespace StockMarket
     class BuyStocks
     {
         // connect to database
-        static DbConnectionClass con = new DbConnectionClass();
+        static DbConnection con = new DbConnection();
         SqlConnection sqlConnection = con.connectToDatabase();
 
         /**

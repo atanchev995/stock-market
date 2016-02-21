@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StockMarket
 {
-    class DbConnectionClass
+    class DbConnection
     {
         public SqlConnection connectToDatabase()
         {
