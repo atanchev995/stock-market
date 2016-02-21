@@ -12,6 +12,8 @@ namespace StockMarket
 {
     public partial class frmCreateAccount : Form
     {
+        AccountClass create = new AccountClass();
+
         public frmCreateAccount()
         {
             InitializeComponent();
@@ -29,7 +31,6 @@ namespace StockMarket
             int money = Convert.ToInt32(txtMoney.Text);
 
             // call function to create the account
-            AccountClass create = new AccountClass();
             create.createAccount(username, name, surname, money);
 
             // hide the create account form

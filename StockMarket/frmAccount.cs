@@ -12,6 +12,8 @@ namespace StockMarket
 {
     public partial class frmAccount : Form
     {
+        AccountClass account = new AccountClass();
+
         private readonly frmStockMarket _frmStockMarket;
         public frmAccount(frmStockMarket frmStockMarket)
         {
@@ -26,7 +28,7 @@ namespace StockMarket
          */
         private void frmAccount_Load(object sender, EventArgs e)
         {
-            AccountClass account = new AccountClass();
+            
             string username = account.getUsername();
             string name = account.getName();
             string surname = account.getSurname();
@@ -61,8 +63,7 @@ namespace StockMarket
             txtName.ReadOnly = true;
             txtSurname.ReadOnly = true;
             txtMoney.ReadOnly = true;
-
-            AccountClass account = new AccountClass();
+            
             string Id = account.getId();
             string newUsername = txtUsername.Text;
             string newName = txtName.Text;

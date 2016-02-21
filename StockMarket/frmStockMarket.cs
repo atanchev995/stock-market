@@ -12,6 +12,13 @@ namespace StockMarket
 {
     public partial class frmStockMarket : Form
     {
+        AccountClass account = new AccountClass();
+        PortfolioClass portfolio = new PortfolioClass();
+        QuoteClass quote = new QuoteClass();
+        BuyClass buy = new BuyClass();
+        SellClass sell = new SellClass();
+        HistoryClass history = new HistoryClass();
+
         public frmStockMarket()
         {
             InitializeComponent();
@@ -22,8 +29,7 @@ namespace StockMarket
          */
         public void fillName()
         {
-            AccountClass name = new AccountClass();
-            string nameOfUser = name.getName();
+            string nameOfUser = account.getName();
             lblWelcome.Text = "Welcome: " + nameOfUser;
         }
 
@@ -32,8 +38,7 @@ namespace StockMarket
          */
         public void fillMoney()
         {
-            AccountClass money = new AccountClass();
-            string moneyOfUser = money.getMoney();
+            string moneyOfUser = account.getMoney();
             lblMoney.Text = "Money: " + moneyOfUser;
         }
 
@@ -42,7 +47,6 @@ namespace StockMarket
          */
         public void fillPortfolio()
         {
-            PortfolioClass portfolio = new PortfolioClass();
             portfolio.fillPortfolio(listPortfolio);
         }
 
@@ -51,7 +55,6 @@ namespace StockMarket
          */
         public void fillQuote()
         {
-            QuoteClass quote = new QuoteClass();
             quote.fillQuote(listQuote);
         }
 
@@ -60,7 +63,6 @@ namespace StockMarket
          */
         public void fillBuyComboBox()
         {
-            BuyClass buy = new BuyClass();
             buy.fillBuyComboBox(cmbBuy);
         }
 
@@ -69,7 +71,6 @@ namespace StockMarket
          */
         public void fillSellComboBox()
         {
-            SellClass sell = new SellClass();
             sell.fillSellComboBox(cmbSell);
         }
 
@@ -78,7 +79,6 @@ namespace StockMarket
          */
         public void fillHistory()
         {
-            HistoryClass history = new HistoryClass();
             history.fillHistory(listHistory);
         }
 
@@ -115,8 +115,7 @@ namespace StockMarket
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string searchString = txtSearchQuote.Text;
-            QuoteClass search = new QuoteClass();
-            search.searchQuote(searchString, listQuote);
+            quote.searchQuote(searchString, listQuote);
         }
 
         /**
@@ -125,8 +124,7 @@ namespace StockMarket
         private void btnSearchPortfolio_Click(object sender, EventArgs e)
         {
             string searchString = txtSearchPortfolio.Text;
-            PortfolioClass search = new PortfolioClass();
-            search.searchPortfolio(searchString, listPortfolio);
+            portfolio.searchPortfolio(searchString, listPortfolio);
         }
 
         string priceSelectedBuy { get; set; }
@@ -138,7 +136,6 @@ namespace StockMarket
         private void cmbBuy_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedCompany = cmbBuy.SelectedItem.ToString();
-            BuyClass buy = new BuyClass();
             priceSelectedBuy = buy.getPrice(selectedCompany);
             txtPriceBuy.Text = priceSelectedBuy;
             txtAmountBuy.Text = string.Empty;
@@ -150,8 +147,7 @@ namespace StockMarket
          */
         private void txtAmountBuy_TextChanged(object sender, EventArgs e)
         {
-            BuyClass cost = new BuyClass();
-            cost.calculateCost(txtAmountBuy, txtPriceBuy, txtCostBuy, cmbBuy);
+            buy.calculateCost(txtAmountBuy, txtPriceBuy, txtCostBuy, cmbBuy);
         }
 
         /**
@@ -159,7 +155,6 @@ namespace StockMarket
          */
         private void btnBuy_Click(object sender, EventArgs e)
         {
-            BuyClass buy = new BuyClass();
             string selectedCompany = cmbBuy.SelectedItem.ToString();
             string symbolOfCompany = buy.getSymbol(selectedCompany);
             string idOfCompany = buy.getId(selectedCompany);
@@ -195,7 +190,6 @@ namespace StockMarket
         private void cmbSell_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedCompany = cmbSell.SelectedItem.ToString();
-            SellClass sell = new SellClass();
             priceSelectedSell = sell.getPrice(selectedCompany);
             txtPriceSell.Text = priceSelectedSell;
             txtAmountSell.Text = string.Empty;
@@ -207,7 +201,6 @@ namespace StockMarket
          */
         private void txtAmountSell_TextChanged(object sender, EventArgs e)
         {
-            SellClass sell = new SellClass();
             sell.calculateCost(txtAmountSell, txtPriceSell, txtCostSell, cmbSell);
         }
 
@@ -216,7 +209,6 @@ namespace StockMarket
          */
         private void btnSell_Click(object sender, EventArgs e)
         {
-            SellClass sell = new SellClass();
             string selectedCompany = cmbSell.SelectedItem.ToString();
             string symbolOfCompany = sell.getSymbol(selectedCompany);
             string idOfCompany = sell.getId(selectedCompany);

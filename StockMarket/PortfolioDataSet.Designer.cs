@@ -279,7 +279,7 @@ namespace StockMarket {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class portfolioDataTable : global::System.Data.TypedTableBase<portfolioRow> {
             
-            private global::System.Data.DataColumn columnId;
+            private global::System.Data.DataColumn columnid;
             
             private global::System.Data.DataColumn columnsymbol;
             
@@ -326,9 +326,9 @@ namespace StockMarket {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
+            public global::System.Data.DataColumn idColumn {
                 get {
-                    return this.columnId;
+                    return this.columnid;
                 }
             }
             
@@ -409,10 +409,10 @@ namespace StockMarket {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public portfolioRow AddportfolioRow(int Id, string symbol, string company, int shares, decimal price, decimal total) {
+            public portfolioRow AddportfolioRow(int id, string symbol, string company, int shares, decimal price, decimal total) {
                 portfolioRow rowportfolioRow = ((portfolioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id,
+                        id,
                         symbol,
                         company,
                         shares,
@@ -425,9 +425,9 @@ namespace StockMarket {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public portfolioRow FindById(int Id) {
+            public portfolioRow FindByid(int id) {
                 return ((portfolioRow)(this.Rows.Find(new object[] {
-                            Id})));
+                            id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -447,7 +447,7 @@ namespace StockMarket {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnId = base.Columns["Id"];
+                this.columnid = base.Columns["id"];
                 this.columnsymbol = base.Columns["symbol"];
                 this.columncompany = base.Columns["company"];
                 this.columnshares = base.Columns["shares"];
@@ -458,8 +458,8 @@ namespace StockMarket {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
                 this.columnsymbol = new global::System.Data.DataColumn("symbol", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsymbol);
                 this.columncompany = new global::System.Data.DataColumn("company", typeof(string), null, global::System.Data.MappingType.Element);
@@ -471,9 +471,9 @@ namespace StockMarket {
                 this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AllowDBNull = false;
-                this.columnId.Unique = true;
+                                this.columnid}, true));
+                this.columnid.AllowDBNull = false;
+                this.columnid.Unique = true;
                 this.columnsymbol.AllowDBNull = false;
                 this.columnsymbol.MaxLength = 255;
                 this.columncompany.AllowDBNull = false;
@@ -623,12 +623,12 @@ namespace StockMarket {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id {
+            public int id {
                 get {
-                    return ((int)(this[this.tableportfolio.IdColumn]));
+                    return ((int)(this[this.tableportfolio.idColumn]));
                 }
                 set {
-                    this[this.tableportfolio.IdColumn] = value;
+                    this[this.tableportfolio.idColumn] = value;
                 }
             }
             
@@ -847,7 +847,7 @@ namespace StockMarket.PortfolioDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "portfolio";
-            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("symbol", "symbol");
             tableMapping.ColumnMappings.Add("company", "company");
             tableMapping.ColumnMappings.Add("shares", "shares");
@@ -856,11 +856,11 @@ namespace StockMarket.PortfolioDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[portfolio] WHERE (([Id] = @Original_Id) AND ([symbol] = @Origi" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[portfolio] WHERE (([id] = @Original_id) AND ([symbol] = @Origi" +
                 "nal_symbol) AND ([company] = @Original_company) AND ([shares] = @Original_shares" +
                 ") AND ([price] = @Original_price) AND ([total] = @Original_total))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_symbol", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "symbol", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_company", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "company", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -868,11 +868,11 @@ namespace StockMarket.PortfolioDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_total", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "total", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[portfolio] ([Id], [symbol], [company], [shares], [price], [tot" +
-                "al]) VALUES (@Id, @symbol, @company, @shares, @price, @total);\r\nSELECT Id, symbo" +
-                "l, company, shares, price, total FROM portfolio WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[portfolio] ([id], [symbol], [company], [shares], [price], [tot" +
+                "al]) VALUES (@id, @symbol, @company, @shares, @price, @total);\r\nSELECT id, symbo" +
+                "l, company, shares, price, total FROM portfolio WHERE (id = @id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@symbol", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "symbol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@company", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "company", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shares", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -880,16 +880,16 @@ namespace StockMarket.PortfolioDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[portfolio] SET [Id] = @Id, [symbol] = @symbol, [company] = @company, [shares] = @shares, [price] = @price, [total] = @total WHERE (([Id] = @Original_Id) AND ([symbol] = @Original_symbol) AND ([company] = @Original_company) AND ([shares] = @Original_shares) AND ([price] = @Original_price) AND ([total] = @Original_total));
-SELECT Id, symbol, company, shares, price, total FROM portfolio WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[portfolio] SET [id] = @id, [symbol] = @symbol, [company] = @company, [shares] = @shares, [price] = @price, [total] = @total WHERE (([id] = @Original_id) AND ([symbol] = @Original_symbol) AND ([company] = @Original_company) AND ([shares] = @Original_shares) AND ([price] = @Original_price) AND ([total] = @Original_total));
+SELECT id, symbol, company, shares, price, total FROM portfolio WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@symbol", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "symbol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@company", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "company", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shares", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_symbol", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "symbol", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_company", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "company", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -910,7 +910,7 @@ SELECT Id, symbol, company, shares, price, total FROM portfolio WHERE (Id = @Id)
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, symbol, company, shares, price, total FROM dbo.portfolio";
+            this._commandCollection[0].CommandText = "SELECT id, symbol, company, shares, price, total FROM dbo.portfolio";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -971,8 +971,8 @@ SELECT Id, symbol, company, shares, price, total FROM portfolio WHERE (Id = @Id)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_symbol, string Original_company, int Original_shares, decimal Original_price, decimal Original_total) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
+        public virtual int Delete(int Original_id, string Original_symbol, string Original_company, int Original_shares, decimal Original_price, decimal Original_total) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_symbol == null)) {
                 throw new global::System.ArgumentNullException("Original_symbol");
             }
@@ -1008,8 +1008,8 @@ SELECT Id, symbol, company, shares, price, total FROM portfolio WHERE (Id = @Id)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Id, string symbol, string company, int shares, decimal price, decimal total) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Id));
+        public virtual int Insert(int id, string symbol, string company, int shares, decimal price, decimal total) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id));
             if ((symbol == null)) {
                 throw new global::System.ArgumentNullException("symbol");
             }
@@ -1045,8 +1045,8 @@ SELECT Id, symbol, company, shares, price, total FROM portfolio WHERE (Id = @Id)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Id, string symbol, string company, int shares, decimal price, decimal total, int Original_Id, string Original_symbol, string Original_company, int Original_shares, decimal Original_price, decimal Original_total) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Id));
+        public virtual int Update(int id, string symbol, string company, int shares, decimal price, decimal total, int Original_id, string Original_symbol, string Original_company, int Original_shares, decimal Original_price, decimal Original_total) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id));
             if ((symbol == null)) {
                 throw new global::System.ArgumentNullException("symbol");
             }
@@ -1062,7 +1062,7 @@ SELECT Id, symbol, company, shares, price, total FROM portfolio WHERE (Id = @Id)
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(shares));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(price));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(total));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id));
             if ((Original_symbol == null)) {
                 throw new global::System.ArgumentNullException("Original_symbol");
             }
@@ -1098,8 +1098,8 @@ SELECT Id, symbol, company, shares, price, total FROM portfolio WHERE (Id = @Id)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string symbol, string company, int shares, decimal price, decimal total, int Original_Id, string Original_symbol, string Original_company, int Original_shares, decimal Original_price, decimal Original_total) {
-            return this.Update(Original_Id, symbol, company, shares, price, total, Original_Id, Original_symbol, Original_company, Original_shares, Original_price, Original_total);
+        public virtual int Update(string symbol, string company, int shares, decimal price, decimal total, int Original_id, string Original_symbol, string Original_company, int Original_shares, decimal Original_price, decimal Original_total) {
+            return this.Update(Original_id, symbol, company, shares, price, total, Original_id, Original_symbol, Original_company, Original_shares, Original_price, Original_total);
         }
     }
     
