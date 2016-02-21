@@ -78,7 +78,7 @@
     </Compile>
     <Compile Include="AccountManagement.cs" />
     <Compile Include="StocksHistory.cs" />
-    <Compile Include="PortfolioClass.cs" />
+    <Compile Include="UserPortfolio.cs" />
     <Compile Include="PortfolioDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

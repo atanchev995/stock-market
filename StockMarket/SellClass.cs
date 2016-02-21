@@ -170,7 +170,7 @@ namespace StockMarket
             else
             {
                 // check how much shares user has
-                PortfolioClass checkShares = new PortfolioClass();
+                UserPortfolio checkShares = new UserPortfolio();
                 double userShares = Convert.ToDouble(checkShares.getShares(nameOfCompany));
 
                 // convert variables

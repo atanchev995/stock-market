@@ -13,7 +13,7 @@ namespace StockMarket
     public partial class frmStockMarket : Form
     {
         AccountManagement account = new AccountManagement();
-        PortfolioClass portfolio = new PortfolioClass();
+        UserPortfolio portfolio = new UserPortfolio();
         QuoteClass quote = new QuoteClass();
         BuyStocks buy = new BuyStocks();
         SellClass sell = new SellClass();
