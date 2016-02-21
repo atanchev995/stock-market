@@ -77,7 +77,7 @@
       <DependentUpon>frmStockMarket.cs</DependentUpon>
     </Compile>
     <Compile Include="AccountManagement.cs" />
-    <Compile Include="HistoryClass.cs" />
+    <Compile Include="StocksHistory.cs" />
     <Compile Include="PortfolioClass.cs" />
     <Compile Include="PortfolioDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

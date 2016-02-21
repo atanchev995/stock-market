@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace StockMarket
 {
-    class HistoryClass
+    class StocksHistory
     {
         // connect to database
         static DbConnection con = new DbConnection();

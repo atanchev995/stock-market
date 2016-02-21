@@ -17,7 +17,7 @@ namespace StockMarket
         QuoteClass quote = new QuoteClass();
         BuyStocks buy = new BuyStocks();
         SellClass sell = new SellClass();
-        HistoryClass history = new HistoryClass();
+        StocksHistory history = new StocksHistory();
 
         public frmStockMarket()
         {
