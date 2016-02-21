@@ -17,7 +17,7 @@ namespace StockMarket
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            AccountClass check = new AccountClass();
+            AccountManagement check = new AccountManagement();
 
             // check if account exists and show the appropriate form
             if (check.checkAccount() == 0)

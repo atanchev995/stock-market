@@ -12,7 +12,7 @@ namespace StockMarket
 {
     public partial class frmAccount : Form
     {
-        AccountClass account = new AccountClass();
+        AccountManagement account = new AccountManagement();
 
         private readonly frmStockMarket _frmStockMarket;
         public frmAccount(frmStockMarket frmStockMarket)

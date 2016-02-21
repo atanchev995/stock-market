@@ -170,7 +170,7 @@ namespace StockMarket
             else
             {
                 // check how much money user has
-                AccountClass checkMoney = new AccountClass();
+                AccountManagement checkMoney = new AccountManagement();
                 double totalMoney = Convert.ToDouble(checkMoney.getMoney());
                 double totalCost = Convert.ToDouble(costOfShares.Text);
 

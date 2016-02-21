@@ -12,7 +12,7 @@ namespace StockMarket
 {
     public partial class frmCreateAccount : Form
     {
-        AccountClass create = new AccountClass();
+        AccountManagement create = new AccountManagement();
 
         public frmCreateAccount()
         {

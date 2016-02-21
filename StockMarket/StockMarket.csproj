@@ -76,7 +76,7 @@
     <Compile Include="frmStockMarket.Designer.cs">
       <DependentUpon>frmStockMarket.cs</DependentUpon>
     </Compile>
-    <Compile Include="AccountClass.cs" />
+    <Compile Include="AccountManagement.cs" />
     <Compile Include="HistoryClass.cs" />
     <Compile Include="PortfolioClass.cs" />
     <Compile Include="PortfolioDataSet.Designer.cs">
