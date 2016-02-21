@@ -14,7 +14,7 @@ namespace StockMarket
     {
         AccountManagement account = new AccountManagement();
         UserPortfolio portfolio = new UserPortfolio();
-        QuoteClass quote = new QuoteClass();
+        StockQuote quote = new StockQuote();
         BuyStocks buy = new BuyStocks();
         SellClass sell = new SellClass();
         StocksHistory history = new StocksHistory();

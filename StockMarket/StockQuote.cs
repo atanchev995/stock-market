@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace StockMarket
 {
-    class QuoteClass
+    class StockQuote
     {
         // connect to database
         static DbConnection con = new DbConnection();
