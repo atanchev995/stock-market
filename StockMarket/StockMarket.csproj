@@ -87,7 +87,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockQuote.cs" />
-    <Compile Include="SellClass.cs" />
+    <Compile Include="SellStocks.cs" />
     <EmbeddedResource Include="frmAccount.resx">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </EmbeddedResource>

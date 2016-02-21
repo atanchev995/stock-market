@@ -16,7 +16,7 @@ namespace StockMarket
         UserPortfolio portfolio = new UserPortfolio();
         StockQuote quote = new StockQuote();
         BuyStocks buy = new BuyStocks();
-        SellClass sell = new SellClass();
+        SellStocks sell = new SellStocks();
         StocksHistory history = new StocksHistory();
 
         public frmStockMarket()
