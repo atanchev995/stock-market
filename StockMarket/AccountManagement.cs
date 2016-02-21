@@ -111,7 +111,7 @@ namespace StockMarket
                 try
                 {
                     // convert variables
-                    NumberFormatClass format = new NumberFormatClass();
+                    NumberFormat format = new NumberFormat();
                     string newMoneyString = format.ToUSString(newMoney);
 
                     // insert new data

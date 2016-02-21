@@ -57,7 +57,7 @@
     <Compile Include="frmReport.Designer.cs">
       <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="NumberFormatClass.cs" />
+    <Compile Include="NumberFormat.cs" />
     <Compile Include="frmAccount.cs">
       <SubType>Form</SubType>
     </Compile>

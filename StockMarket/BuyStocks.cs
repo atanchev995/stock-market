@@ -184,7 +184,7 @@ namespace StockMarket
                     // convert variables
                     int id = Convert.ToInt32(idOfCompany);
                     int shares = Convert.ToInt32(amountOfShares.Text);
-                    NumberFormatClass format = new NumberFormatClass();
+                    NumberFormat format = new NumberFormat();
                     double price = Convert.ToDouble(priceOfShare);
                     string priceString = format.ToUSString(price);
                     double total = Convert.ToDouble(costOfShares.Text);

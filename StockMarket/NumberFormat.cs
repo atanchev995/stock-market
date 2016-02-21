@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StockMarket
 {
-    class NumberFormatClass
+    class NumberFormat
     {
         public string ToUSString(double value)
         {
