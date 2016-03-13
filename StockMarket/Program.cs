@@ -20,7 +20,7 @@ namespace StockMarket
             AccountManagement check = new AccountManagement();
 
             // check if account exists and show the appropriate form
-            if (check.checkAccount() == 0)
+            if (check.AccountExists == 0)
                 Application.Run(new frmCreateAccount());
             else
                 Application.Run(new frmStockMarket());

@@ -12,7 +12,6 @@ namespace StockMarket
 {
     public partial class frmStockMarket : Form
     {
-        AccountManagement account = new AccountManagement();
         UserPortfolio portfolio = new UserPortfolio();
         StockQuote quote = new StockQuote();
         BuyStocks buy = new BuyStocks();
@@ -29,7 +28,8 @@ namespace StockMarket
          */
         public void fillName()
         {
-            string nameOfUser = account.getName();
+            AccountManagement account = new AccountManagement();
+            string nameOfUser = account.Name;
             lblWelcome.Text = "Welcome: " + nameOfUser;
         }
 
@@ -38,7 +38,8 @@ namespace StockMarket
          */
         public void fillMoney()
         {
-            string moneyOfUser = account.getMoney();
+            AccountManagement account = new AccountManagement();
+            string moneyOfUser = account.Money;
             lblMoney.Text = "Money: " + moneyOfUser;
         }
 

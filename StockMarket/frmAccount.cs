@@ -29,15 +29,15 @@ namespace StockMarket
         private void frmAccount_Load(object sender, EventArgs e)
         {
             
-            string username = account.getUsername();
-            string name = account.getName();
-            string surname = account.getSurname();
-            string money = account.getMoney();
+            string username = account.Username;
+            string name = account.Name;
+            string surname = account.Surname;
+            string money = account.Money;
 
             txtUsername.Text = username;
             txtName.Text = name;
             txtSurname.Text = surname;
-            txtMoney.Text = money;
+            txtMoney.Text = money.ToString();
         }
 
         /**
@@ -64,7 +64,7 @@ namespace StockMarket
             txtSurname.ReadOnly = true;
             txtMoney.ReadOnly = true;
             
-            string Id = account.getId();
+            string Id = account.Id;
             string newUsername = txtUsername.Text;
             string newName = txtName.Text;
             string newSurname = txtSurname.Text;

@@ -11,6 +11,25 @@ namespace StockMarket
 {
     class AccountManagement
     {
+        // declare variables
+        private int accountExists;
+        private string id;
+        private string username;
+        private string name;
+        private string surname;
+        private string money;
+
+        // create constructor
+        public AccountManagement()
+        {
+            checkAccountExists();
+            checkId();
+            checkUsername();
+            checkName();
+            checkSurname();
+            checkMoney();
+        }
+
         // connect to database
         static DbConnection con = new DbConnection();
         SqlConnection sqlConnection = con.connectToDatabase();
@@ -36,7 +55,7 @@ namespace StockMarket
         /**
          * Checks if an account exists
          */
-        public int checkAccount()
+        public int checkAccountExists()
         {
             try
             {
@@ -50,10 +69,9 @@ namespace StockMarket
                 dataTable.Load(queryCommandReader);
 
                 // count the number of rows in the account table
-                int rowCount = dataTable.Rows.Count;
+                accountExists = dataTable.Rows.Count;
 
-                // return the number of rows in the account table
-                return rowCount;
+                return accountExists;
             }
             finally
             {
@@ -61,10 +79,16 @@ namespace StockMarket
             }
         }
 
+        public int AccountExists
+        {
+            get { return accountExists; }
+            set { accountExists = checkAccountExists(); }
+        }
+
         /**
          * Returns the Id of the user
          */
-        public string getId()
+        public string checkId()
         {
             try
             {
@@ -75,9 +99,11 @@ namespace StockMarket
                 // use an SqlDataReader to get the Id of the user
                 using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
                 {
-                    // return the Id of the user
+                    // get the Id of the user
                     if (dataReader.Read())
-                        return dataReader["Id"].ToString();
+                    {
+                        id = dataReader["Id"].ToString();
+                    }
                 }
             }
             finally
@@ -85,8 +111,14 @@ namespace StockMarket
                 sqlConnection.Close();
             }
 
-            // if there's an error return not found
-            return "Not Found";
+            // return the id
+            return id;
+        }
+
+        public string Id
+        {
+            get { return id; }
+            set { id = checkId(); }
         }
 
         /**
@@ -132,7 +164,7 @@ namespace StockMarket
         /**
          * Returns the username of the user
          */
-        public string getUsername()
+        public string checkUsername()
         {
             // create sql command to select the username of the user
             try
@@ -145,7 +177,7 @@ namespace StockMarket
                 {
                     // return the name of the user
                     if (dataReader.Read())
-                        return dataReader["username"].ToString();   
+                        username = dataReader["username"].ToString();   
                 }
             }
             finally
@@ -154,13 +186,19 @@ namespace StockMarket
             }
 
             // if there's an error return not found
-            return "Not Found";
+            return username;
+        }
+
+        public string Username
+        {
+            get { return username; }
+            set { username = checkUsername(); }
         }
 
         /**
          * Returns the name of the user
          */
-        public string getName()
+        public string checkName()
         {
             try
             {
@@ -173,7 +211,7 @@ namespace StockMarket
                 {
                     // return the name of the user
                     if (dataReader.Read())
-                        return dataReader["name"].ToString();
+                        name = dataReader["name"].ToString();
                 }
             }
             finally
@@ -182,13 +220,19 @@ namespace StockMarket
             }
 
             // if there's an error return not found
-            return "Not Found";
+            return name;
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = checkName(); }
         }
 
         /**
          * Returns the surname of the user
          */
-        public string getSurname()
+        public string checkSurname()
         {
             try
             {
@@ -201,7 +245,7 @@ namespace StockMarket
                 {
                     // return the name of the user
                     if (dataReader.Read())
-                        return dataReader["surname"].ToString();      
+                        surname = dataReader["surname"].ToString();      
                 }
             }
             finally
@@ -209,14 +253,20 @@ namespace StockMarket
                 sqlConnection.Close();
             }
 
-            // if there's an error return not found
-            return "Not Found";
+            // return surname
+            return surname;
+        }
+
+        public string Surname
+        {
+            get { return surname; }
+            set { surname = checkSurname(); }
         }
 
         /**
          * Returns the amount of money of the user
          */
-        public string getMoney()
+        public string checkMoney()
         {
             try
             {
@@ -229,7 +279,9 @@ namespace StockMarket
                 {
                     // return the amount of money of the user
                     if (dataReader.Read())
-                        return dataReader["money"].ToString();     
+                    {
+                        money = dataReader["money"].ToString();
+                    }  
                 }
             }
             finally
@@ -237,8 +289,14 @@ namespace StockMarket
                 sqlConnection.Close();
             }
 
-            // if there's an error return not found
-            return "Not Found";
+            // return money
+            return money;
+        }
+
+        public string Money
+        {
+            get { return money; }
+            set { money = checkMoney(); }
         }
     }
 }

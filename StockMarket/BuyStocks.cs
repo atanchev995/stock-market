@@ -171,7 +171,7 @@ namespace StockMarket
             {
                 // check how much money user has
                 AccountManagement checkMoney = new AccountManagement();
-                double totalMoney = Convert.ToDouble(checkMoney.getMoney());
+                double totalMoney = Convert.ToDouble(checkMoney.Money);
                 double totalCost = Convert.ToDouble(costOfShares.Text);
 
                 // check if the user can afford to buy this stock
