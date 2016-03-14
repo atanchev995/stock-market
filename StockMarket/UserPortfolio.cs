@@ -7,6 +7,9 @@ namespace StockMarket
 {
     class UserPortfolio
     {
+        // declare variables
+        private string shares;
+
         // connect to database
         static DbConnection con = new DbConnection();
         SqlConnection sqlConnection = con.Connect;
@@ -108,7 +111,7 @@ namespace StockMarket
                 {
                     // return the shares of the company
                     if (dataReader.Read())
-                        return dataReader["shares"].ToString();
+                        shares = dataReader["shares"].ToString();
                 }
             }
             finally
@@ -116,8 +119,8 @@ namespace StockMarket
                 sqlConnection.Close();
             }
 
-            // if there's an error return not found
-            return "Not Found";
+            // return shares
+            return shares;
         }
     }
 }
