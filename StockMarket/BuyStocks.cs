@@ -13,7 +13,7 @@ namespace StockMarket
 
         // connect to database
         static DbConnection con = new DbConnection();
-        SqlConnection sqlConnection = con.connectToDatabase();
+        SqlConnection sqlConnection = con.Connect;
 
         /**
          * Fills the buy combobox with the companies
