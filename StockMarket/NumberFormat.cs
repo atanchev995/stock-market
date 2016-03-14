@@ -4,9 +4,13 @@ namespace StockMarket
 {
     class NumberFormat
     {
-        public string ToUSString(double value)
+        // declare variables
+        private string usString;
+
+        public string ToUSString(double val)
         {
-            return value.ToString(CultureInfo.GetCultureInfo("en-US"));
+            usString = val.ToString(CultureInfo.GetCultureInfo("en-US"));
+            return usString;
         }
     }
 }
