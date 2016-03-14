@@ -6,6 +6,11 @@ namespace StockMarket
 {
     class BuyStocks
     {
+        // declare variables
+        private string price;
+        private string symbol;
+        private string id;
+
         // connect to database
         static DbConnection con = new DbConnection();
         SqlConnection sqlConnection = con.connectToDatabase();
@@ -51,7 +56,7 @@ namespace StockMarket
                 {
                     // return the name of the user
                     if (dataReader.Read())
-                        return dataReader["price"].ToString();
+                        price = dataReader["price"].ToString();
                 }
             }
             finally
@@ -59,8 +64,8 @@ namespace StockMarket
                 sqlConnection.Close();
             }
 
-            // if there's an error return not found
-            return "Not Found";
+            // return price
+            return price;
         }
 
         /**
@@ -79,7 +84,7 @@ namespace StockMarket
                 {
                     // return the symbol of the company
                     if (dataReader.Read())
-                        return dataReader["symbol"].ToString();
+                        symbol = dataReader["symbol"].ToString();
                 }
             }
             finally
@@ -87,8 +92,8 @@ namespace StockMarket
                 sqlConnection.Close();
             }
 
-            // if there's an error return not found
-            return "Not Found";
+            // return symbol
+            return symbol;
         }
 
         /**
@@ -107,7 +112,7 @@ namespace StockMarket
                 {
                     // return the id of the company
                     if (dataReader.Read())
-                        return dataReader["Id"].ToString();   
+                        id = dataReader["Id"].ToString();   
                 }
             }
             finally
@@ -115,8 +120,8 @@ namespace StockMarket
                 sqlConnection.Close();
             }
 
-            // if there's an error return not found
-            return "Not Found";
+            // return id
+            return id;
         }
 
         /**
@@ -199,9 +204,6 @@ namespace StockMarket
                         // update money
                         SqlCommand sqlCommandMoney = new SqlCommand(String.Format("update account set money = money - {0}", totalString), sqlConnection);
                         sqlCommandMoney.ExecuteNonQuery();
-
-                        // inform the user about the sucessfull transaction
-                        MessageBox.Show(String.Format("You successfully bought {0} shares from {1}. The total cost was {2}.", shares, nameOfCompany, total), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     finally
                     {

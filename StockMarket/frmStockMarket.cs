@@ -176,6 +176,9 @@ namespace StockMarket
 
             // update the history
             fillHistory();
+
+            // inform the user about the sucessfull transaction
+            MessageBox.Show(String.Format("You successfully bought {0} shares from {1}. The total cost was {2}.", txtAmountBuy.Text, selectedCompany, txtCostBuy.Text), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /**
