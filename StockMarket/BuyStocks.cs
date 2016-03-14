@@ -127,43 +127,45 @@ namespace StockMarket
         /**
          * Calculates the total cost based on the amount of shares bought
          */
-        public void calculateCost(TextBox amountOfShares, TextBox priceOfShares, TextBox costOfShares, ComboBox cmbBuy)
+        public string calculateCost(string amountOfShares, string priceOfShares, string costOfShares, string selectedCompany)
         {
             // check if the value is a number, if the company or the amount is empty
             int parsedValue;
-            if (int.TryParse(amountOfShares.Text, out parsedValue) && !String.IsNullOrEmpty(cmbBuy.Text) && !String.IsNullOrWhiteSpace(amountOfShares.Text))
+            if (int.TryParse(amountOfShares, out parsedValue) && !String.IsNullOrEmpty(selectedCompany) && !String.IsNullOrWhiteSpace(amountOfShares))
             {
                 // calculate the amount
-                double priceValue = Convert.ToDouble(priceOfShares.Text);
-                double amountValue = Convert.ToDouble(amountOfShares.Text);
+                double priceValue = Convert.ToDouble(priceOfShares);
+                double amountValue = Convert.ToDouble(amountOfShares);
                 double costValue = priceValue * amountValue;
-                costOfShares.Text = Convert.ToString(costValue);
+                costOfShares = Convert.ToString(costValue);
             }
             // if it is then clear it
-            else if (String.IsNullOrWhiteSpace(amountOfShares.Text))
+            else if (String.IsNullOrWhiteSpace(amountOfShares))
             {
-                amountOfShares.Text = String.Empty;
+                costOfShares = String.Empty;
             }
+
+            return costOfShares;
         }
 
         /**
-         * Sells a number of stocks, adds the transaction to portfolio and history, and updates the user's money
+         * Buys a number of stocks, adds the transaction to portfolio and history, and updates the user's money
          */
-        public void buyShares(ComboBox cmbBuy, string idOfCompany, TextBox amountOfShares, TextBox costOfShares, string symbolOfCompany, string nameOfCompany, string priceOfShare)
+        public void buyShares(string idOfCompany, string amountOfShares, string costOfShares, string symbolOfCompany, string nameOfCompany, string priceOfShare)
         {
             // check if the user has selected a stock
             int parsedValue;
-            if (String.IsNullOrEmpty(cmbBuy.Text))
+            if (String.IsNullOrEmpty(nameOfCompany))
             {
                 MessageBox.Show("You must specify a stock to buy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             // check if user has entered an amount of shares
-            else if (String.IsNullOrWhiteSpace(amountOfShares.Text))
+            else if (String.IsNullOrWhiteSpace(amountOfShares))
             {
                 MessageBox.Show("You must specify an amount of shares.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             // make sure that user buys whole shares, not fractions
-            else if (!int.TryParse(amountOfShares.Text, out parsedValue))
+            else if (!int.TryParse(amountOfShares, out parsedValue))
             {
                 MessageBox.Show("Invalid number of shares.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -172,7 +174,7 @@ namespace StockMarket
                 // check how much money user has
                 AccountManagement checkMoney = new AccountManagement();
                 double totalMoney = Convert.ToDouble(checkMoney.Money);
-                double totalCost = Convert.ToDouble(costOfShares.Text);
+                double totalCost = Convert.ToDouble(costOfShares);
 
                 // check if the user can afford to buy this stock
                 if (totalMoney < totalCost)
@@ -183,11 +185,11 @@ namespace StockMarket
                 {
                     // convert variables
                     int id = Convert.ToInt32(idOfCompany);
-                    int shares = Convert.ToInt32(amountOfShares.Text);
+                    int shares = Convert.ToInt32(amountOfShares);
                     NumberFormat format = new NumberFormat();
                     double price = Convert.ToDouble(priceOfShare);
                     string priceString = format.ToUSString(price);
-                    double total = Convert.ToDouble(costOfShares.Text);
+                    double total = Convert.ToDouble(costOfShares);
                     string totalString = format.ToUSString(total);
 
                     try
@@ -204,6 +206,9 @@ namespace StockMarket
                         // update money
                         SqlCommand sqlCommandMoney = new SqlCommand(String.Format("update account set money = money - {0}", totalString), sqlConnection);
                         sqlCommandMoney.ExecuteNonQuery();
+
+                        // inform the user about the sucessfull transaction
+                        MessageBox.Show(String.Format("You successfully bought {0} shares from {1}. The total cost was {2}.", shares, nameOfCompany, total), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     finally
                     {

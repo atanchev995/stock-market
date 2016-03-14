@@ -141,7 +141,12 @@ namespace StockMarket
          */
         private void txtAmountBuy_TextChanged(object sender, EventArgs e)
         {
-            buy.calculateCost(txtAmountBuy, txtPriceBuy, txtCostBuy, cmbBuy);
+            string amountBuy = txtAmountBuy.Text;
+            string priceBuy = txtPriceBuy.Text;
+            string costBuy = txtCostBuy.Text;
+            string selectedCompany = cmbBuy.SelectedItem.ToString();
+            string result = buy.calculateCost(amountBuy, priceBuy, costBuy, selectedCompany);
+            txtCostBuy.Text = result;
         }
 
         /**
@@ -150,9 +155,11 @@ namespace StockMarket
         private void btnBuy_Click(object sender, EventArgs e)
         {
             string selectedCompany = cmbBuy.SelectedItem.ToString();
+            string amountBuy = txtAmountBuy.Text;
+            string costBuy = txtCostBuy.Text;
             string symbolOfCompany = buy.getSymbol(selectedCompany);
             string idOfCompany = buy.getId(selectedCompany);
-            buy.buyShares(cmbBuy, idOfCompany, txtAmountBuy, txtCostBuy, symbolOfCompany, selectedCompany, priceSelectedBuy);
+            buy.buyShares(idOfCompany, amountBuy, costBuy, symbolOfCompany, selectedCompany, priceSelectedBuy);
 
             // update the money label
             fillMoney();
@@ -176,9 +183,6 @@ namespace StockMarket
 
             // update the history
             fillHistory();
-
-            // inform the user about the sucessfull transaction
-            MessageBox.Show(String.Format("You successfully bought {0} shares from {1}. The total cost was {2}.", txtAmountBuy.Text, selectedCompany, txtCostBuy.Text), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /**
@@ -198,7 +202,12 @@ namespace StockMarket
          */
         private void txtAmountSell_TextChanged(object sender, EventArgs e)
         {
-            sell.calculateCost(txtAmountSell, txtPriceSell, txtCostSell, cmbSell);
+            string amountSell = txtAmountSell.Text;
+            string priceSell = txtPriceSell.Text;
+            string costSell = txtCostSell.Text;
+            string selectedCompany = cmbSell.SelectedItem.ToString();
+            string result = sell.calculateCost(amountSell, priceSell, costSell, selectedCompany);
+            txtCostSell.Text = result;
         }
 
         /**
@@ -207,9 +216,11 @@ namespace StockMarket
         private void btnSell_Click(object sender, EventArgs e)
         {
             string selectedCompany = cmbSell.SelectedItem.ToString();
+            string amountSell = txtAmountSell.Text;
+            string costSell = txtCostSell.Text;
             string symbolOfCompany = sell.getSymbol(selectedCompany);
             string idOfCompany = sell.getId(selectedCompany);
-            sell.sellShares(cmbSell, idOfCompany, txtAmountSell, txtCostSell, symbolOfCompany, selectedCompany, priceSelectedSell);
+            sell.sellShares(cmbSell, idOfCompany, amountSell, costSell, symbolOfCompany, selectedCompany, priceSelectedSell);
 
             // update the money label
             fillMoney();

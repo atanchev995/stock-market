@@ -122,29 +122,31 @@ namespace StockMarket
         /**
          * Calculates the total cost based on the amount of shares sold
          */
-        public void calculateCost(TextBox amountOfShares, TextBox priceOfShares, TextBox costOfShares, ComboBox cmbSell)
+        public string calculateCost(string amountOfShares, string priceOfShares, string costOfShares, string selectedCompany)
         {
             // check if the value is a number, if the company or the amount is empty
             int parsedValue;
-            if (int.TryParse(amountOfShares.Text, out parsedValue) && !String.IsNullOrEmpty(cmbSell.Text) && !String.IsNullOrWhiteSpace(amountOfShares.Text))
+            if (int.TryParse(amountOfShares, out parsedValue) && !String.IsNullOrEmpty(selectedCompany) && !String.IsNullOrWhiteSpace(amountOfShares))
             {
                 // calculate the amount
-                double priceValue = Convert.ToDouble(priceOfShares.Text);
-                double amountValue = Convert.ToDouble(amountOfShares.Text);
+                double priceValue = Convert.ToDouble(priceOfShares);
+                double amountValue = Convert.ToDouble(amountOfShares);
                 double costValue = priceValue * amountValue;
-                costOfShares.Text = Convert.ToString(costValue);
+                costOfShares = Convert.ToString(costValue);
             }
             // if it is then clear it
-            else if (String.IsNullOrWhiteSpace(amountOfShares.Text))
+            else if (String.IsNullOrWhiteSpace(amountOfShares))
             {
-                amountOfShares.Text = String.Empty;
+                costOfShares = String.Empty;
             }
+
+            return costOfShares;
         }
 
         /**
-         *
+         * Sells a number of stocks, adds the transaction to portfolio and history, and updates the user's money
          */
-        public void sellShares(ComboBox cmbSell, string idOfCompany, TextBox amountOfShares, TextBox costOfShares, string symbolOfCompany, string nameOfCompany, string priceOfShare)
+        public void sellShares(ComboBox cmbSell, string idOfCompany, string amountOfShares, string costOfShares, string symbolOfCompany, string nameOfCompany, string priceOfShare)
         {
             // check if the user has selected a stock
             int parsedValue;
@@ -153,12 +155,12 @@ namespace StockMarket
                 MessageBox.Show("You must specify a stock to sell.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             // check if user has entered an amount of shares
-            else if (String.IsNullOrWhiteSpace(amountOfShares.Text))
+            else if (String.IsNullOrWhiteSpace(amountOfShares))
             {
                 MessageBox.Show("You must specify an amount of shares.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             // make sure that user buys whole shares, not fractions
-            else if (!int.TryParse(amountOfShares.Text, out parsedValue))
+            else if (!int.TryParse(amountOfShares, out parsedValue))
             {
                 MessageBox.Show("Invalid number of shares.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -170,11 +172,11 @@ namespace StockMarket
 
                 // convert variables
                 int id = Convert.ToInt32(idOfCompany);
-                int shares = Convert.ToInt32(amountOfShares.Text);
+                int shares = Convert.ToInt32(amountOfShares);
                 NumberFormat format = new NumberFormat();
                 double price = Convert.ToDouble(priceOfShare);
                 string priceString = format.ToUSString(price);
-                double total = Convert.ToDouble(costOfShares.Text);
+                double total = Convert.ToDouble(costOfShares);
                 string totalString = format.ToUSString(total);
 
                 // check if the user wants to sell more than he has
